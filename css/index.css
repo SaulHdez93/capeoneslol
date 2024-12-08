@@ -1,0 +1,145 @@
+/* Aplicar el fondo a toda la página */
+
+body {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente los elementos */
+  justify-content: flex-start; /* Alinea los elementos al principio */
+  background-size: cover;
+  background-image: url('../assets/images/fondo.jpg'); /* Ruta al fondo */
+  background-repeat: no-repeat; /* No repetir */
+  background-position: center center; /* Centrar el fondo */
+  background-attachment: fixed; /* Fijar el fondo al viewport */
+  min-height: 100vh;
+  text-align: center; /* Centra el texto dentro de los elementos */
+  
+}
+
+/* Estilo del Título de la página */
+h1 {
+  font-size: 2rem;
+  color: #ffcc00;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Sombra de texto para hacerlo más visible */
+  margin-bottom: 20px; /* Separación con el siguiente elemento */
+}
+
+/* Estilo para el logo (si es necesario) */
+#logo {
+  max-width: 500px; /* Ajusta el tamaño máximo del logo */
+  margin-bottom: 10px; /* Separación con el siguiente elemento */
+}
+
+/* Estilo del botón */
+button {
+  background-color: #ffcc00;
+  color: #282c34;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: #e6b800;
+  transform: scale(1.05);
+}
+
+/* Ajustar la cuadrícula de las tarjetas */
+.champion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajustar el número de columnas */
+  gap: 20px;
+  padding: 0 10px;
+  width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+  max-width: 1200px; /* Establece un límite máximo para que no se estire demasiado */
+  margin-top: 40px; /* Espaciado por encima */
+  margin-bottom: 40px; /* Espaciado por debajo */
+}
+
+/* Contenedor principal de la tarjeta */
+.champion-card {
+  perspective: 1000px; /* Añade perspectiva 3D */
+  width: 200px;
+  height: 300px;
+  margin: 10px;
+}
+
+.champion-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s; /* Suavidad del giro */
+  transform-style: preserve-3d; /* Preserva las caras 3D */
+}
+
+.champion-card:hover .champion-card-inner {
+  transform: rotateY(180deg); /* Gira la tarjeta */
+}
+
+/* Cara frontal */
+.champion-card-front,
+.champion-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Oculta la cara trasera cuando no está visible */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Estilo de la cara frontal */
+.champion-card-front {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffcc00;
+}
+
+/* Estilo de la cara trasera */
+.champion-card-back {
+  background-color: #1d1f27;
+  color: #fff;
+  text-align: center;
+  transform: rotateY(180deg); /* Gira la cara trasera para que sea visible al girar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid #ffcc00;
+}
+
+/* Título y estadísticas en el reverso */
+.champion-card-back h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.champion-card-back ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.champion-card-back li {
+  margin: 5px 0;
+  font-size: 1rem;
+  text-align: left;
+}
+
+/* Estilos para mensaje de error */
+#error {
+  color: red;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+/* Ocultar el mensaje de error inicialmente */
+.hidden {
+  display: none;
+}
